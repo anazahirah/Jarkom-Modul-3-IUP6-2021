@@ -14,7 +14,6 @@ apt-get install bind9 -y`
 `# Jipangu
 apt-get update
 apt-get install isc-dhcp-server -y
-
 cp -r shift3/default /etc/
 cp -r shift3/dhcp /etc/`
 
