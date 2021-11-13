@@ -38,10 +38,10 @@ apt-get update
 apt-get install squid -y
 ```
 
-and for Jipangu, we change config interfaces in `isc-dhcp-server` to `INTERFACES="eth0"`
-<br>
-Difficulties:<br>
--none<br>
+and for Jipangu, we change config interfaces in `isc-dhcp-server` to `INTERFACES="eth0"`<br>
+
+Difficulties: <br>
+-none <br>
 
 ### **Number 2**
 Foosha as DHCP Relay we use `isc-dhcp-relay` then, we install on node <br>
