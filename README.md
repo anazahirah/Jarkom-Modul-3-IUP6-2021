@@ -121,3 +121,33 @@ hwaddress ether f2:94:26:ac:52:fd
 Loguetown is used as a proxy client so that buying and selling transactions can be guaranteed security, as well as to prevent leakage of transaction data.
 
 In Loguetown, the proxy must be accessible under the namejualbelikapal.yyy.com with the port used is 5000 <br>
+in the squid.conf in water7, add
+```
+http_port 5000
+visible_hostname jualbelikapal.e01.com
+```
+then turn on Squid <br>
+For testing in Loguetown, must turn on forwarders in DNS EniesLobby, especially in named.conf.options <br>
+
+```
+forwarders {
+        192.168.122.1
+};
+
+// dnssec-validation auto;
+allow-query { any; };
+```
+then restart bind9 <br>
+In loguetown, install lynx and add `export http_proxy=http://192.122.2.3:5000` for set a proxy on the client.
+`lynx http://its.ac.id`
+add allow, that it can be accessed<br>
+```
+"/etc/squid/squid.conf"
+
+http_port 5000
+visible_hostname jualbelikapal.e01.com
+
+http_access allow all
+```
+
+<img width="409" alt="2021-11-11 (13)" src="https://user-images.githubusercontent.com/74299958/141456011-35e98836-e582-46c7-8870-cdba65adf018.png">
