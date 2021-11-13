@@ -81,11 +81,37 @@ The client gets DNS from EniesLobby and the client can connect to the internet t
 ![Screen Shot 2021-11-13 at 17 18 23](https://user-images.githubusercontent.com/74056954/141614975-d370cadb-acab-4988-9ff3-7f192380024a.png)
 
 ### **Number 6**
-The length of time the DHCP server lends an IP address to the client via Switch1 is 6 minutes, while the client via Switch3 is 12 minutes. With a maximum time allocated for borrowing an IP address for 120 minutes. <br>
+The length of time the DHCP server lends an IP address to the client via Switch1 is 6 minutes <br>
+```
+default-lease-time 360;
+```
+, while the client via Switch3 is 12 minutes <br>
+```
+default-lease-time 720;
+```
+With a maximum time allocated for borrowing an IP address for 120 minutes. <br>
+```
+max-lease-time 7200;
+```
+
 ![Screen Shot 2021-11-13 at 17 18 23](https://user-images.githubusercontent.com/74056954/141614975-d370cadb-acab-4988-9ff3-7f192380024a.png)
 
 ### **Number 7**
 Luffy and Zoro plan to use Skypie as a server for buying and selling ships they own with a fixed IP address with IP [IP prefix].3.69. <br>
+first, take hwaddress in Skypie, after that config in Jipangu, dhcpd.conf <br>
+```
+host Skypie {
+    hardware ethernet f2:94:26:ac:52:fd;
+    fixed-address 192.122.3.69;
+}
+```
+add config skypie
+```
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether f2:94:26:ac:52:fd
+```
+
 <img width="585" alt="141455958-bec8be39-23f7-418b-9c1f-1145a6768fa5" src="https://user-images.githubusercontent.com/74056954/141615014-df3131cd-77cd-4011-b7ea-7218357890fe.png">
 
 <img width="415" alt="141455994-2b343b44-feba-4ac2-80a9-21dd80170072" src="https://user-images.githubusercontent.com/74056954/141615021-ea12a71a-5621-446d-9920-6723bf36679e.png">
@@ -95,6 +121,3 @@ Luffy and Zoro plan to use Skypie as a server for buying and selling ships they 
 Loguetown is used as a proxy client so that buying and selling transactions can be guaranteed security, as well as to prevent leakage of transaction data.
 
 In Loguetown, the proxy must be accessible under the namejualbelikapal.yyy.com with the port used is 5000 <br>
-
-### **Number 9**
-To make buying and selling transactions more secure and there are two website users, proxy user authentication is installed with MD5 encryption with two usernames, namely luffybelikapalyyy with password luffy_yyy and zorobelikapalyyy with password zoro_ <br>
