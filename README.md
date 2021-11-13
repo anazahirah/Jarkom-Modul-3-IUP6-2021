@@ -138,7 +138,7 @@ forwarders {
 allow-query { any; };
 ```
 then restart bind9 <br>
-In loguetown, install lynx and add `export http_proxy=http://192.122.2.3:5000` for set a proxy on the client.
+In loguetown, install lynx and add `export http_proxy=http://192.122.2.3:5000` for set a proxy on the client. <br>
 `lynx http://its.ac.id` <br>
 add allow, that it can be accessed <br>
 ```
